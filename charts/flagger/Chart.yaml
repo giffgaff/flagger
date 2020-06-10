@@ -1,6 +1,6 @@
 apiVersion: v1
 name: flagger
-version: 0.27.0
+version: 0.27.1
 appVersion: 1.0.0-rc.5
 kubeVersion: ">=1.11.0-0"
 engine: gotpl
@@ -13,6 +13,9 @@ maintainers:
   - name: stefanprodan
     url: https://github.com/stefanprodan
     email: stefanprodan@users.noreply.github.com
+  - name: giffgaff
+    url: https://github.com/giffgaff
+    email: tooling-team@giffgaff.co.uk
 keywords:
   - flagger
   - istio
