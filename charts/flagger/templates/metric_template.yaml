@@ -10,17 +10,17 @@ spec:
      sum(
         rate(
         http_requests_total{
-          job={{`{{ target }}`}}, 
+          job="{{`{{ target }}`}}", 
           status=~"5.*", 
           path!~"/manage/*"}
-          [{{`{{ interval }}`}}])) OR on() vector(0)
+          ["{{`{{ interval }}`}}"])) OR on() vector(0)
       /
       sum(
         rate(
           http_requests_total{
-            job={{`{{ target }}`}}, 
+            job="{{`{{ target }}`}}", 
             path!~"/manage/*"}
-            [{{`{{ interval }}`}}]))OR on() vector(0)
+            ["{{`{{ interval }}`}}"]))OR on() vector(0)
         * 100
 ---
 apiVersion: flagger.app/v1beta1
@@ -35,17 +35,17 @@ spec:
       sum(
         rate(
         http_requests_total{
-          job={{`{{ target }}`}}, 
+          job="{{`{{ target }}`}}", 
           status=~"5.*", 
           path!~"/manage/*"}
-          [{{`{{ interval }}`}}])) OR on() vector(0)
+          ["{{`{{ interval }}`}}"])) OR on() vector(0)
       /
       sum(
         rate(
           http_requests_total{
-            job={{`{{ target }}`}}, 
+            job="{{`{{ target }}`}}", 
             path!~"/manage/*"}
-            [{{`{{ interval }}`}}]))OR on() vector(0)
+            ["{{`{{ interval }}`}}"]))OR on() vector(0)
       * 100
 ---
 apiVersion: flagger.app/v1beta1
@@ -60,16 +60,16 @@ spec:
       sum(
         rate(
           http_server_requests_seconds_count{
-            job={{`{{ target }}`}}, 
+            job="{{`{{ target }}`}}", 
             status=~"5.*"}
-            [{{`{{ interval }}`}}])
+            ["{{`{{ interval }}`}}"])
             OR vector(0)) 
       /
       sum(
         rate(
           http_server_requests_seconds_count{
-            job={{`{{ target }}`}},
+            job="{{`{{ target }}`}}",
             status=~"2.*"}
-            [{{`{{ interval }}`}}]
+            ["{{`{{ interval }}`}}"]
             )OR vector(0)) 
             * 100
